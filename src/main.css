@@ -33,7 +33,7 @@ header {
 }
 
 .title {
-    font-size: 1.8em;
+    font-size: 1.7em;
     height:0;
     line-height:0;
     font-weight: 800;
@@ -80,13 +80,20 @@ i {
     min-width:33%
 }
 
-select {
-    border: none;
+.select-container{
+    display:flex;
+    justify-content:center;
+    align-items: center;
     min-width:15%;
     border-radius: 10px;
-    padding-left: 15px;
-    font-size: 14px;
 }
+
+select {
+    border: none;
+    font-size: 14px;
+    width: 80%;
+}
+
 
 input {
     border: none;
@@ -248,8 +255,7 @@ p {
         padding: 0 20px;
     }
 
-    select {
-        width: 100%;
+    .select-container {
         height: 65px;
         margin-top: 10px;
 

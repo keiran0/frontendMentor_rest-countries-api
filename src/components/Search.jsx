@@ -10,6 +10,7 @@ export default function Search({mode, onRegionChange, region, onTextChange}){
           <input placeholder='Search for a country...' className={mode} onChange={onTextChange}/>
         </div>
 
+        <div className={`select-container ${mode}`}>
           <select name="region" className={mode} onChange={onRegionChange} value={region}>
             <option value="">Filter by Region</option>
             <option value="Africa">Africa</option>
@@ -19,7 +20,7 @@ export default function Search({mode, onRegionChange, region, onTextChange}){
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
           </select>
-
+        </div>
       </div>
     )
 }
