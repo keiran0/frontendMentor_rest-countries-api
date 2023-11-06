@@ -49,21 +49,21 @@ export default function CountryDetail({ countryName, backHandler, mode }) {
                 <div className="detail-text">
                     <h1>{detail["name"]["common"]}</h1>
                     <div className="detail-text-container">
-                        <div>
+                        <div className="detail-text-subcontainer">
                             <p><span className="field">Official Name: </span>{detail["name"]["official"]}</p>
                             <p><span className="field">Population: </span>{detail["population"].toLocaleString('en-US')}</p>
                             <p><span className="field">Region: </span>{detail["region"]}</p>
                             <p><span className="field">Sub Region: </span>{detail["subregion"]}</p>
                             <p><span className="field">Capital: </span>{detail["capital"]}</p>
                         </div>
-                        <div>
+                        <div className="detail-text-subcontainer">
                             <p><span className="field">Top Level Domain: </span>{detail["tld"][0]}</p>
                             <p><span className="field">Currencies: </span>{currencies.join(', ')}</p>
                             <p><span className="field">Languages: </span>{languages.join(', ')}</p>
                         </div>
                     </div>
                     <div className="border-countries-container">
-                        <span className="field">Border Countries: </span>{detail["borders"] ? abbreBorders.map(border => <button key={`${border}${countryName}`} className={`${mode}`}>{border}</button>) : "None"}
+                        <span className="field">Border Countries: </span>{detail["borders"] ? abbreBorders.map(border => <div key={`${border}${countryName}`} className={`border-country ${mode}`}>{border}</div>) : "None"}
                     </div>
                 </div>
             </div>
