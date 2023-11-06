@@ -32,7 +32,7 @@ header {
     align-items:center
 }
 
-h1 {
+.title {
     font-size: 1.8em;
     height:0;
     line-height:0;
@@ -56,7 +56,6 @@ button {
 }
 
 .menu button{
-    border: none;
     font-size:16px
 }
 
@@ -160,9 +159,8 @@ p {
 }
 
 .country-detail button {
-
     height: 37px;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .back-button {
@@ -172,23 +170,26 @@ p {
 
 .detail-main-container {
     display:grid;
-    grid-template-columns: auto auto;
-    margin: 7%;
-    grid-column-gap: 5%
+    grid-template-columns: 50% 50%;
+    padding: 7%;
 }
 
 .detail-flag-container {
-    width : 560px;
-    height: 400px
+    display:flex;
+    align-self:center;
 }
 
 .detail-flag-container img {
     width: 100%;
     height: 100%;
+    max-height: 400px;
+    max-width: 560px
 }
 
 .detail-text {
-    align-self:center
+    align-self:center;
+    font-size:16px;
+    margin-left: 10%
 }
 
 .detail-text-container {
@@ -196,21 +197,13 @@ p {
     grid-template-columns: auto auto;
 }
 
-.detail-text-container h1 {
-
-}
-
-.detail-text-subcontainer {
-
-}
-
-.border-countries-container{
-    
-}
-
 .border-countries-container button {
-    margin: 2%;
+    margin: 1%;
     min-width: 15%;
+}
+
+.fa-arrow-left {
+    margin: 0 5px 0 0
 }
 
 
@@ -224,11 +217,52 @@ p {
     .home-screen-grid {
         grid-template-columns: repeat(2, 265px);
     }
+
+    .detail-text-container {
+        display:block;
+    }
+
+    .back-button {
+        min-width: 20%
+    }
 }
+
+
 
 @media only screen and (max-width: 650px){
     .home-screen-grid {
         grid-template-columns: 265px;
+    }
+
+    .detail-main-container {
+        display: block;
+    }
+
+    header {
+        font-size: 10px;
+        padding: 0 20px;
+    }
+
+    .search {
+        display: block;
+        padding: 0 20px;
+    }
+
+    select {
+        width: 100%;
+        height: 65px;
+        margin-top: 10px;
+
+    }
+
+    .home-screen-grid {
+        margin: 125px auto;
+        grid-gap: 30px;
+    }
+
+    .title {
+        line-height: normal;
+        height: auto;
     }
 }
 
