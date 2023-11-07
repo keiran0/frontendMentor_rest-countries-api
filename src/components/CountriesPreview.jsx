@@ -1,8 +1,5 @@
 import CountryPreview from './CountryPreview'
-
-const response = await fetch("https://restcountries.com/v3.1/all")
-const data = await response.json()
-
+import data from '../data.mjs'
 
 export default function CountriesPreview({ mode, filteredRegion, filteredText, handleCountryClick }) {
 
