@@ -1,10 +1,8 @@
-import data from '../data.mjs'
-
-export default function CountryDetail({ countryName, backHandler, mode }) {
+export default function CountryDetail({ countryName, backHandler, mode, countryData }) {
 
     let detail = {}
 
-    data.forEach(function (country) {
+    countryData.forEach(function (country) {
         if (country['name']['common'] === countryName) {
             detail = { ...country, ...detail }
             //console.log(detail["currencies"])
@@ -25,7 +23,7 @@ export default function CountryDetail({ countryName, backHandler, mode }) {
 
     if (detail["borders"]) {
         detail["borders"].forEach(function(border){
-            data.forEach(function(country){
+            countryData.forEach(function(country){
                 if (country["cca3"]===border){
                     abbreBorders.push(country['name']['common'])
                 }

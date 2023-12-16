@@ -1,20 +1,19 @@
 import CountryPreview from './CountryPreview'
-import data from '../data.mjs'
 
-export default function CountriesPreview({ mode, filteredRegion, filteredText, handleCountryClick }) {
+export default function CountriesPreview({ mode, filteredRegion, filteredText, handleCountryClick, countryData }) {
 
     let filteredData = []
 
     if (filteredRegion !== '') {
         if (filteredText !== '') {
-            data.forEach(function(country){
+            countryData.forEach(function(country){
                 if (country['region'] === filteredRegion && country["name"]["common"].toUpperCase().search(filteredText.toUpperCase())>=0) {
                     filteredData.push(country)
                 }
             })
         } else {
             
-            data.forEach(function(country){
+            countryData.forEach(function(country){
                 if (country['region'] === filteredRegion) {
                     filteredData.push(country)
                 }
@@ -22,13 +21,13 @@ export default function CountriesPreview({ mode, filteredRegion, filteredText, h
         }
     } else { //no region filtered
         if (filteredText !== '') {
-            data.forEach(function(country){
+            countryData.forEach(function(country){
                 if (country["name"]["common"].toUpperCase().search(filteredText.toUpperCase())>=0) {
                     filteredData.push(country)
                 }
             })
         } else {
-            filteredData = data
+            filteredData = countryData
         }
     }
 

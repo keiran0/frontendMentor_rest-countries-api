@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import Home from './components/Home'
 import CountryDetail from './components/CountryDetail';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './main.css'
 
@@ -17,6 +17,18 @@ function App() {
     }
   }
 
+  const [countryData, setCountryData] = useState([])
+
+  useEffect(()=>{
+      async function fetchData(){
+          const response = await fetch("https://restcountries.com/v3.1/all")
+          const data = await response.json()
+          setCountryData(data)
+      }
+      fetchData()
+  }, [])
+
+
   const [country, setCountry] = useState('')
 
   function handleCountryClick(e) {
@@ -30,7 +42,7 @@ function App() {
   return (
     <div className={`screen ${mode}`}>
       <Header clickHandler={modeHandler} mode={mode} />
-      {country===''?<Home mode={mode} handleCountryClick={(e) => handleCountryClick(e)}/>:<CountryDetail countryName={country} backHandler={backHandler} mode={mode}/>}
+      {country===''?<Home mode={mode} handleCountryClick={(e) => handleCountryClick(e)} countryData={countryData}/>:<CountryDetail countryName={country} backHandler={backHandler} mode={mode} countryData={countryData}/>}
     </div>
   )
 
