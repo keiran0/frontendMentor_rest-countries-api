@@ -22,7 +22,9 @@ function App() {
   useEffect(()=>{
       async function fetchData(){
           const response = await fetch("https://restcountries.com/v3.1/all")
+          console.log(response)
           const data = await response.json()
+          console.log(data)
           setCountryData(data)
       }
       fetchData()
